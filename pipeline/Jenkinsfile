@@ -9,6 +9,7 @@ pipeline {
                 echo "=============== start build image ==============="
                 dir ('/home/ubuntu/jenkins/workspace/Pipeline/') {
                     sh 'docker-compose up -d'
+                    sh 'docker ps'
                 }
             }
         }
