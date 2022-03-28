@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  nginx:
+#    image: barmaley0brom/mybucket-imgs:docker_nginx
+    build: ./DF-NGINX-full/
+    container_name: nginx
+    ports:
+      - '80:80'
+      - '443:443'
+    restart: always
+
+  apache2:
+    build: ./Df-apache+php/
+#    image: barmaley0brom/mybucket-imgs:docker_apache
+    container_name: apache
+    ports:
+      - '8080:80'
+    links:
+      - nginx
+    depends_on:
+      - 'nginx'  #name service
