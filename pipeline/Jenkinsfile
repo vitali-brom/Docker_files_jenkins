@@ -7,7 +7,7 @@ pipeline {
         stage('create docker images') {
             steps {
                 echo "=============== start build image ==============="
-                dir ('/home/ubuntu/jenkins/workspace/build-2/') {
+                dir ('/home/ubuntu/jenkins/workspace/Pipeline/') {
                     sh 'docker-compose up -d'
                 }
             }
