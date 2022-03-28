@@ -4,7 +4,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
     }
     stages {
-        stage('create docker images') {
+        stage('create docker images and run containers') {
             steps {
                 echo "=============== start build image ==============="
                 dir ('/home/ubuntu/jenkins/workspace/Pipeline/') {
