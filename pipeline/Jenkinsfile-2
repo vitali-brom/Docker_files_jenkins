@@ -5,11 +5,11 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
     }
-    tools {
-        jdk 'openjdk-11'
-        maven 'maven 3.6.3'
-        dockerTool 'docker-latest'
-    }
+    //tools {
+    //    jdk 'openjdk-11'
+    //    maven 'maven 3.6.3'
+    //    dockerTool 'docker-latest'
+    //}
     environment {
         POM_VERSION = getVersion()
         AWS_ECR_REGION = 'eu-central-1'
