@@ -1,0 +1,20 @@
+pipeline {
+    agent { label 'ECS-nigger'}
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
+    stages {
+        stage('create docker images and run containers') {
+            steps {
+                echo "=============== start build image ==============="
+                dir ('/home/ubuntu/jenkins/workspace/Pipeline/') {
+                    sh 'docker-compose up -d'
+                    sh 'docker ps'
+                }
+            }
+        }
+    }
+}
+
+
