@@ -45,7 +45,7 @@ pipeline {
                     //    dockerImage.push("latest")
                         // Push to ECR
                         //docker.image("$REPOSITORY_URI").push("$SHORT_COMMIT")
-                    }
+                    //}
                 }
             }
         }
