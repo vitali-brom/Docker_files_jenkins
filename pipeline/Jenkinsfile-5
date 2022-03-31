@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Build image in the top directory
-                    def dockerImage = docker.build("$REPOSITORY_URI", ".")
+                    def dockerImage = docker.build("$REPOSITORY_URI", "./Df-apache+php/Dockerfile")
                 }
             }
         }
