@@ -25,7 +25,7 @@ pipeline {
                 script {
                     // Build image in the top directory
                     dir ('/home/ubuntu/jenkins/workspace/Pipeline/Df-apache+php/') {
-                        def dockerImage = docker.build("$REPOSITORY_URI", ".")
+                        def dockerImage = docker.build("$REPOSITORY_URI:${SHORT_COMMIT}", ".")
                         //sh 'docker build -t 446490198376.dkr.ecr.eu-central-1.amazonaws.com/container-app-demo .'
                     }
                 }
