@@ -20,7 +20,10 @@ pipeline {
             steps {
                 script {
                     // Build image in the top directory
-                    def dockerImage = docker.build("$REPOSITORY_URI", "-f ./Df-apache+php/Dockerfile .")
+                    //def dockerImage = docker.build("$REPOSITORY_URI", "-f ./Df-apache+php/Dockerfile .")
+                    dir ('/home/ubuntu/jenkins/workspace/Pipeline/Df-apache+php/') {
+                        sh 'docker build -t 446490198376.dkr.ecr.eu-central-1.amazonaws.com/container-app-demo .'
+                    }
                 }
             }
         }
