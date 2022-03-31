@@ -59,8 +59,8 @@ pipeline {
                 }
                 script {
                     // Register task definition
-                    sh "aws ecs register-task-definition --output json --cli-input-json file://${WORKSPACE}/taskdef_${SHORT_COMMIT}.json > ${env.WORKSPACE}/temp.json"
-                    def projects = readJSON file: "${env.WORKSPACE}/temp.json"
+                    sh "aws ecs register-task-definition --output json --cli-input-json file://${WORKSPACE}/taskdef_${SHORT_COMMIT}.json > ${WORKSPACE}/temp.json"
+                    def projects = readJSON file: "${WORKSPACE}/temp.json"
                     def TASK_REVISION = projects.taskDefinition.revision
 
                     // update service
