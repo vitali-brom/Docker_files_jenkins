@@ -35,9 +35,11 @@ pipeline {
         stage('Publish Image to ECR') {
             steps{
                 script {
-                    withElasticContainerRegistry {
+                     docker.withRegistry("$REPOSITORY_URI")
+                        docker.push("${env.BUILD_NUMBER}")
+                        docker.push("latest")
                         // Push to ECR
-                        docker.image("$REPOSITORY_URI").push("$SHORT_COMMIT")
+                        //docker.image("$REPOSITORY_URI").push("$SHORT_COMMIT")
                     }
                 }
             }
