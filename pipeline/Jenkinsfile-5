@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    //WORKSPACE = "/home/ubuntu/jenkins/workspace/Pipeline"
+    WORKSPACE = '/home/ubuntu/jenkins/workspace/Pipeline/pipeline'
     AWS_ACCOUNT_ID = "446490198376"
     AWS_DEFAULT_REGION = "eu-central-1"
     IMAGE_REPO_NAME ="container-app-demo"
@@ -59,12 +59,12 @@ pipeline {
                 }
                 script {
                     // Register task definition
-                    AWS("ecs register-task-definition --output json --cli-input-json file://${WORKSPACE}/taskdef_${SHORT_COMMIT}.json > ${env.WORKSPACE}/temp.json")
+                    sh "aws ecs register-task-definition --output json --cli-input-json file://${WORKSPACE}/taskdef_${SHORT_COMMIT}.json > ${env.WORKSPACE}/temp.json")
                     def projects = readJSON file: "${env.WORKSPACE}/temp.json"
                     def TASK_REVISION = projects.taskDefinition.revision
 
                     // update service
-                    AWS("ecs update-service --cluster ${CLUSTER_NAME} --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY}:${TASK_REVISION} --desired-count ${DESIRED_COUNT}")
+                    sh "aws ecs update-service --cluster ${CLUSTER_NAME} --service ${SERVICE_NAME} --task-definition ${TASK_FAMILY}:${TASK_REVISION} --desired-count ${DESIRED_COUNT}")
                 }
             }
         }
