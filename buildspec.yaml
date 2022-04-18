@@ -32,7 +32,7 @@ phases:
       # - mocha test.js
   post_build:
     commands:
-      - docker image build -t $IMAGE_NAME -f ./Df-apache+php/Dockerfile
+      - docker image build -t $IMAGE_NAME -f Df-apache+php/Dockerfile
       - docker image tag $IMAGE_NAME:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_NAME:latest
       - echo image name =  $IMAGE_NAME:latest
       - echo image url = $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_NAME:latest
