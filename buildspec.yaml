@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    AWS_REGION: us-east-1
+    AWS_REGION: eu-central-1
     AWS_ACCOUNT_ID: 446490198376
     IMAGE_NAME: apache-p
     CONTAINER_NAME: ecs-apache
