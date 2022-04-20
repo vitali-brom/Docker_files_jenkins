@@ -47,4 +47,4 @@ phases:
 artifacts:
   files: 
     - imagedefinitions.json
-    - Docker_files_jenkins/Df-apache+php/html-for-apache/*
+    - Df-apache+php/html-for-apache/*
