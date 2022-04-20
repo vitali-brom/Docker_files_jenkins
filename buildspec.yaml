@@ -47,3 +47,4 @@ phases:
 artifacts:
   files: 
     - imagedefinitions.json
+    - /usr/share/nginx/html/**/*
