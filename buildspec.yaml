@@ -29,7 +29,6 @@ phases:
       # - mocha test.js
   post_build:
     commands:
-      - cat imagedefinitions.json
       - echo Build completed on `date`
 
 
